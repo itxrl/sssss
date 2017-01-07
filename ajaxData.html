@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="{CHARSET}">
+		<title></title>
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+	//因为js同源策略的问题，导致跨越问题的存在
+	//我们没有办法用js代码去请求别人的地址
+	//所以我们要用iquery中的ajax
+//	或者我们要学习jsonP去请求才行
+//		var ht = new XMLHttpRequest();
+//		ht.open("GET","http://api.dotaly.com/lol/api/v1/shipin/latest?author=xiaozhi&iap=0&ident=43643E2C-CF06-46E8-9AF2-50A255D268B2&jb=0&limit=50&offset=0&token=7e93a7124b25ee81971b4b2473222c0f",true);
+//		ht.send();
+//		ht.onreadystatechange = function (){
+//			if(ht.status == 200 && ht.readyState == 4) {
+//				console.log(ht.responseText);
+//			}
+//		}
+
+
+//jQuery Ajax 请求数据
+$.ajax({
+	type:"get",
+	url:"http://api.dotaly.com/lol/api/v1/shipin/latest?author=xiaozhi&iap=0&ident=43643E2C-CF06-46E8-9AF2-50A255D268B2&jb=0&limit=50&offset=0&token=7e93a7124b25ee81971b4b2473222c0f",
+	dataType:"json",
+	async:true,
+	success:function(){
+		console.log("请求成功");
+	},
+	error:function(){
+		console.log("请求出错");
+	}
+})
+	</script>
+</html>
